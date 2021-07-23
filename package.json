@@ -1,0 +1,26 @@
+{
+  "name": "ava-webhook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhvupt/ava-webhook.git"
+  },
+  "keywords": [
+    "webhook"
+  ],
+  "author": "anhvupt - anhvupt2412@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anhvupt/ava-webhook/issues"
+  },
+  "homepage": "https://github.com/anhvupt/ava-webhook#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
