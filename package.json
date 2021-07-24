@@ -2,9 +2,13 @@
   "name": "ava-webhook",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "anhvupt - anhvupt2412@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anhvupt/ava-webhook/issues"
+  },
+  "homepage": "https://github.com/anhvupt/ava-webhook#readme",
   "private": true,
-  "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
