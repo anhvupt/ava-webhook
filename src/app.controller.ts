@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Get,
   HttpException,
@@ -9,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { query, Request } from 'express';
 import { AppService } from './app.service';
+import { WebhookEventDto } from './event.dto';
 
 @Controller()
 export class AppController {
@@ -36,8 +38,7 @@ export class AppController {
   }
 
   @Post()
-  postWebhook(@Req() req: Request): string {
-    const body = req.body;
+  postWebhook(@Body() body: WebhookEventDto): string {
     console.log(body);
 
     if (body['object'] === 'page') {
