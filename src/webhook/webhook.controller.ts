@@ -1,11 +1,12 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Post, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, HttpException, HttpStatus } from '@nestjs/common';
+import { WebhookService } from './webhook.service';
+import { CreateWebhookDto } from './dto/create-webhook.dto';
+import { UpdateWebhookDto } from './dto/update-webhook.dto';
+import { EntryDto, WebhookEventDto } from './dto/webhook.dto';
 
-import { AppService } from './app.service';
-import { EntryDto, WebhookEventDto } from './webhook/dto/webhook.dto';
-
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+@Controller('webhook')
+export class WebhookController {
+  constructor(private readonly webhookService: WebhookService) {}
 
   private VERIFY_TOKEN = 'ava-bot';
 
