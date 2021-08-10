@@ -3,7 +3,10 @@ import { WebhookService } from './webhook.service';
 import { CreateWebhookDto } from './dto/create-webhook.dto';
 import { UpdateWebhookDto } from './dto/update-webhook.dto';
 import { EntryDto, WebhookEventDto } from './dto/webhook.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+
+@ApiTags('webhook')
 @Controller('webhook')
 export class WebhookController {
   constructor(private readonly webhookService: WebhookService) {}
@@ -11,11 +14,11 @@ export class WebhookController {
   private VERIFY_TOKEN = 'ava-bot';
 
   @Get()
-  getWebhook(@Query() query): string {
-    const mode: string = query['hub.mode'];
-    const token: string = query['hub.verify_token'];
-    const challenge: string = query['hub.challenge'];
-
+  getWebhook(
+    @Query('hub.mode') mode: string,
+    @Query('hub.verify_token') token: string,
+    @Query('hub.challenge') challenge: string,
+  ): string {
     if (!!mode && !!token) {
       console.log(mode, token);
       if (mode === 'subscribe' && token === this.VERIFY_TOKEN) {
